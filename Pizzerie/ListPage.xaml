@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Pizzerie.ListPage">
+
+    <ContentPage.Content xmlns:local="clr-namespace:Pizzerie">
+        <StackLayout Margin="20">
+            <Editor Placeholder="Nume client" Text="{Binding Description}" HeightRequest="100" >
+            <Editor.Behaviors>
+                <local:ValidationBehaviour />
+            </Editor.Behaviors>
+            </Editor>
+            <Button Text="Alege sortimentul de pizza dorit" Clicked="OnChooseButtonClicked" BackgroundColor="#ECC3FF"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Text="Salvare" Clicked="OnSaveButtonClicked" BackgroundColor="#ECC3FF" />
+                <Button Grid.Column="1" Text="Stergere" Clicked="OnDeleteButtonClicked" BackgroundColor="#ECC3FF"/>
+                <Button Grid.Column="2" Text="Adauga observatii" Clicked="OnAdaugaobsButtonClicked" BackgroundColor="#ECC3FF"/>
+                <ListView Grid.Row="1" x:Name="listView" Margin="20">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Detail="{Binding Description}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
